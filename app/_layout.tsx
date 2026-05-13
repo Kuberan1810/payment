@@ -1,24 +1,34 @@
-import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
-import { Stack } from 'expo-router';
-import { StatusBar } from 'expo-status-bar';
+import React from 'react';
+import "../global.css";
 import 'react-native-reanimated';
+import { Stack } from 'expo-router';
+import { SafeAreaProvider } from "react-native-safe-area-context";
+import { useFonts } from 'expo-font';
+import { cssInterop } from "nativewind";
+import { SafeAreaView } from "react-native-safe-area-context";
+import { TouchableOpacity, View } from "react-native";
 
-import { useColorScheme } from '@/hooks/use-color-scheme';
+cssInterop(SafeAreaView, { className: "style" });
+cssInterop(TouchableOpacity, { className: "style" });
 
-export const unstable_settings = {
-  anchor: '(tabs)',
-};
+export default function Layout() {
 
-export default function RootLayout() {
-  const colorScheme = useColorScheme();
+  const [loaded] = useFonts({
+    'Poppins-Light': require('../assets/fonts/Poppins-Light.ttf'),
+    'Poppins-Regular': require('../assets/fonts/Poppins-Regular.ttf'),
+    'Poppins-Medium': require('../assets/fonts/Poppins-Medium.ttf'),
+    'Poppins-SemiBold': require('../assets/fonts/Poppins-SemiBold.ttf'),
+    'Poppins-Bold': require('../assets/fonts/Poppins-Bold.ttf'),
+    'Poppins-ExtraBold': require('../assets/fonts/Poppins-ExtraBold.ttf'),
+  });
+
+  if (!loaded) return null;
 
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="modal" options={{ presentation: 'modal', title: 'Modal' }} />
-      </Stack>
-      <StatusBar style="auto" />
-    </ThemeProvider>
+    <SafeAreaProvider>
+
+      <Stack screenOptions={{ headerShown: false }} />
+
+    </SafeAreaProvider>
   );
 }
