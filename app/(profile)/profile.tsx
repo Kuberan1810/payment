@@ -2,21 +2,21 @@ import { View, Text } from 'react-native'
 import React from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import HeaderIcon from '@/components/ui/HeaderIcon'
-import { ArrowLeft2, Logout } from 'iconsax-react-native'
+import { ArrowLeft2, UserEdit } from 'iconsax-react-native'
 import { router } from 'expo-router'
-import SettingsList from '@/features/settings/SettingsList'
 
-export default function Settings() {
+export default function profile() {
   return (
-    <SafeAreaView className='flex-1 bg-white w-full px-5 pt-6 gap-8'>
+    <SafeAreaView className='flex-1 bg-white w-full px-5 pt-4'>
+
       <HeaderIcon
         Icon={ArrowLeft2}
         onPress={() => router.back()}
-        Icon2={Logout}
-        Title="Settings"
-      />
-      <SettingsList/>
 
+        Icon2={UserEdit}
+        onPress2={() => router.push('/(profile)/editProfile')    }
+        Title={'Profile'}
+      />
     </SafeAreaView>
   )
 }
