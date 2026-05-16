@@ -1,12 +1,10 @@
-import React from 'react';
 import { Tabs } from 'expo-router';
-import { Home2, Card, Chart, Setting2 } from 'iconsax-react-native';
-import { View } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { Card, Chart, Home2, Setting2 } from 'iconsax-react-native';
+import React from 'react';
 
 export default function TabLayout() {
 
-  
+
   return (
     <Tabs
       screenOptions={{
@@ -32,62 +30,62 @@ export default function TabLayout() {
       }}
     >
 
-        <Tabs.Screen
+      <Tabs.Screen
         name="home"
-          options={{
-            title: "Home",
-            tabBarIcon: ({ focused }) => (
-              <Home2
-                size={24}
-                variant={focused ? "Bold" : "Outline"}
-                color={focused ? "#0066FF" : "#A2A2A7"}
-              />
-            ),
-          }} 
-        />
+        options={{
+          title: "Home",
+          tabBarIcon: ({ focused }) => (
+            <Home2
+              size={24}
+              variant={focused ? "Bold" : "Outline"}
+              color={focused ? "#0066FF" : "#A2A2A7"}
+            />
+          ),
+        }}
+      />
 
-        <Tabs.Screen
-          name="myCards"
-          options={{
-            title: "My Cards",
-            tabBarIcon: ({ focused }) => (
-              <Card
-                size={24}
-                variant={focused ? "Bold" : "Outline"}
-                color={focused ? "#0066FF" : "#A2A2A7"}
-              />
-            ),
-          }}
-        />
+      <Tabs.Screen
+        name="myCards"
+        options={{
+          title: "My Cards",
+          tabBarIcon: ({ focused }) => (
+            <Card
+              size={24}
+              variant={focused ? "Bold" : "Outline"}
+              color={focused ? "#0066FF" : "#A2A2A7"}
+            />
+          ),
+        }}
+      />
 
-        <Tabs.Screen
-          name="statistics"
-          options={{
-            title: "Statistics",
-            tabBarIcon: ({ focused }) => (
-              <Chart
-                size={24}
-                variant={focused ? "Bold" : "Outline"}
-                color={focused ? "#0066FF" : "#A2A2A7"}
-              />
-            ),
-          }}
-        />
+      <Tabs.Screen
+        name="statistics"
+        options={{
+          title: "Statistics",
+          tabBarIcon: ({ focused }) => (
+            <Chart
+              size={24}
+              variant={focused ? "Bold" : "Outline"}
+              color={focused ? "#0066FF" : "#A2A2A7"}
+            />
+          ),
+        }}
+      />
 
-        <Tabs.Screen
-          name="Settings"
-          options={{
-            title: "Settings",
-            tabBarIcon: ({ focused }) => (
-              <Setting2
-                size={24}
-                variant={focused ? "Bold" : "Outline"}
-                color={focused ? "#0066FF" : "#A2A2A7"}
-              />
-            ),
-          }}
-        />
-      </Tabs>
+      <Tabs.Screen
+        name="Settings"
+        options={{
+          title: "Settings",
+          tabBarIcon: ({ focused }) => (
+            <Setting2
+              size={24}
+              variant={focused ? "Bold" : "Outline"}
+              color={focused ? "#0066FF" : "#A2A2A7"}
+            />
+          ),
+        }}
+      />
+    </Tabs>
 
 
   );

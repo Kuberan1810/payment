@@ -1,65 +1,10 @@
 import { View, Text, Image, TouchableOpacity } from 'react-native'
 import React from 'react'
-import { Import, ShoppingCart } from 'iconsax-react-native'
+import { transactions } from '@/data/transaction';
+import { router } from 'expo-router';
 
 
-const transactions = [
-    {
-        id: 1,
-        type: 'image',
-        image: require('@/assets/images/home/apple-logo.png'),
-        title: 'Apple Store',
-        subtitle: 'Entertainment',
-        amount: '- $5,99',
-        amountColor: '#1E1E2D'
-    },
-    {
-        id: 2,
-        type: 'image',
-        image: require('@/assets/images/home/spotify.png'),
-        title: 'Spotify',
-        subtitle: 'Music',
-        amount: '- $12,99',
-        amountColor: '#1E1E2D'
-    },
-    {
-        id: 3,
-        type: 'icon',
-        icon: Import,
-        title: 'Money Transfer',
-        subtitle: 'Transaction',
-        amount: '$300',
-        amountColor: '#3D5CFF'
-    },
-    {
-        id: 4,
-        type: 'icon',
-        icon: ShoppingCart,
-        title: 'Grocery',
-        subtitle: 'Shopping',
-        amount: '- $88',
-        amountColor: '#1E1E2D'
-    },
-      {
-        id: 5,
-        type: 'image',
-        image: require('@/assets/images/home/apple-logo.png'),
-        title: 'Apple Store',
-        subtitle: 'Entertainment',
-        amount: '- $5,99',
-        amountColor: '#1E1E2D'
-    },
-    {
-        id: 6,
-        type: 'image',
-        image: require('@/assets/images/home/spotify.png'),
-        title: 'Spotify',
-        subtitle: 'Music',
-        amount: '- $12,99',
-        amountColor: '#1E1E2D'
-    },
-   
-]
+
 
 export default function TransactionList() {
 
@@ -72,7 +17,9 @@ export default function TransactionList() {
                     Transaction
                 </Text>
 
-                <TouchableOpacity>
+                <TouchableOpacity
+                onPress={()=>{router.push("/(transaction)/transactionHistroy")}}
+                >
                     <Text className="text-[16px] font-medium text-[#3D5CFF]">
                         See all
                     </Text>
@@ -80,7 +27,7 @@ export default function TransactionList() {
             </View>
 
          
-            {transactions.map((item) => {
+            {transactions.slice(0,5).map((item) => {
                 const IconComponent = item.icon;
                 return (
                 <View key={item.id} className="flex-row items-center justify-between mb-5">
